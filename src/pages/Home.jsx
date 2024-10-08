@@ -1,6 +1,6 @@
-import Banner from "../Banner/Banner"
-import Coin from "../Coin"
-import Navbar from "../Navbar/Navbar"
+import Banner from "../components/Banner/Banner"
+import Coin from "../components/CoinTable/Coin"
+import Navbar from "../components/Navbar/Navbar"
 
 function Home() {
     return (
