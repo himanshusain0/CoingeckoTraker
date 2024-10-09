@@ -51,13 +51,13 @@ function Coin() {
                                 key={coin.id}
                                 className="w-full bg-transparent text-white flex py-4 px-2 font-semibold items-center justify-between cursor-pointer"
                             >
-                                <div className="flex items-center justify-start gap-3 basis-[35%]">
-                                    <div className="w-[5rem] h-[5rem]">
+                                <div className="flex items-center justify-start gap-3  basis-[35%] ">
+                                    <div className="w-[2rem] h-[2rem] md:h-[5rem] md:w-[5rem] shadow-md">
                                         <img src={coin.image} className="h-full w-full " />
                                     </div>
                                     <div className="flex flex-col">
-                                        <div className="text-3xl">{coin.name}</div>
-                                        <div className="text-xl">{coin.symbol}</div>
+                                        <div className="text-[12px] flex md:text-3xl">{coin.name}</div>
+                                        <div className="text-[11px] md:text-xl ">{coin.symbol}</div>
                                     </div>
                                 </div>
                                 <div className="basis-[25%]">{coin.current_price}</div>
