@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import { fetchCoinDetails } from "../services/fetchCoinDetails";
 import { useEffect } from "react";
 import parse from 'html-react-parser';
+import currencyStore from '../state/store'
+import PageLoader from '../components/PageLoader/PageLoader'
+import CoinInfoContainer from "../components/CoinInfo/CoinInfoContainer";
 
 function CoinDetailsPage (){
-
+    const {currency} =  currencyStore();
     const {coinId} = useParams();
     const {data:coin ,isLoading ,isError} = useQuery(["coin", coinId],()=> fetchCoinDetails(coinId),{
         cacheTime:1000*60*2,
@@ -16,7 +19,7 @@ function CoinDetailsPage (){
         
     },[coin])
     if(isLoading){
-        return <div>Loading...</div>
+        return <PageLoader/>
     }
     if(isError){
         return <div>Error: Something wentr worng</div>
@@ -66,12 +69,15 @@ function CoinDetailsPage (){
                         <span
                             className="ml-3 text-xl"
                         >
-                            {coin?.market_data.current_price["usd"]}
+                            {coin?.market_data.current_price[currency]}
                         </span>
 
                     </div>
                 </div>
 
+            </div>
+            <div className="md:w-2/3 w-full  ">
+                <CoinInfoContainer coinId={coinId} />
             </div>
         </div>
     )

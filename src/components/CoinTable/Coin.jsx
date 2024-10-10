@@ -3,6 +3,7 @@ import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "react-query";
 import currencyStore from "../../state/store";
 import { useNavigate } from "react-router-dom";
+import PageLoader from '../PageLoader/PageLoader'
 
 function Coin() {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ function Coin() {
     //     console.log(data);
     // },[data])
     if (isLoading) {
-        return <div>Loading</div>;
+        return <PageLoader/>
     }
     if (isError) {
         return <div>Error :{error.message}</div>;
